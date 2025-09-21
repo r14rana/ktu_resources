@@ -16,7 +16,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             gap: 20,
             alignItems: "center",
             padding: "12px 20px",
-            borderBottom: "1px solid #e5e7eb",
+            borderBottom: "1px solid #35ac0aff",
             position: "sticky",
             top: 0,
             background: "white",
