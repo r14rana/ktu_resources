@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Card from "../components/Card";
 
 export default function Home() {
@@ -17,22 +18,22 @@ export default function Home() {
         <Card
           title="Academic Calendar (2024–25)"
           desc="Official term dates, exams, and holidays."
-          href="/academicCalender.pdf"
+          href="/academic-calendar-2024-25.pdf"
         />
         <Card
           title="B.Tech Regulations (2019)"
           desc="Credits, attendance, evaluation, and rules."
-          href="/bTechRegulations.pdf"
+          href="/btech-regulations-2019.pdf"
         />
       </section>
 
       <section style={{ marginTop: 28 }}>
         <h2>Browse Materials</h2>
         <ul>
-          <li><a href="/notes">Notes</a></li>
-          <li><a href="/question-papers">Question Papers</a></li>
-          <li><a href="/solved-qps">Solved Question Papers</a></li>
-          <li><a href="/lab">Lab</a></li>
+          <li><Link href="/notes">Notes</Link></li>
+          <li><Link href="/question-papers">Question Papers</Link></li>
+          <li><Link href="/solved-qps">Solved Question Papers</Link></li>
+          <li><Link href="/lab">Lab</Link></li>
         </ul>
       </section>
     </>
