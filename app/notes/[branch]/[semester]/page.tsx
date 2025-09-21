@@ -1,40 +1,22 @@
-import Link from "next/link";
 import Breadcrumbs from "../../../../components/Breadcrumbs";
+import ResourceList from "../../../../components/ResourceList";
 import { getResources } from "@/data/resources";
 
-export default function SemesterPage({
-  params,
-}: { params: { branch: string; semester: string } }) {
+export default function SemesterPage({ params }: { params: { branch: string; semester: string } }) {
   const { branch, semester } = params;
-  const items = getResources("notes", branch, semester);
+  const items = getResources("notes", branch, semester).map(r => ({
+    id: r.id, title: r.title, href: r.href, tags: r.tags
+  }));
 
   return (
     <>
-      <Breadcrumbs
-        parts={[
-          { label: "Notes", href: "/notes" },
-          { label: branch.toUpperCase(), href: `/notes/${branch}` },
-          { label: semester.toUpperCase() },
-        ]}
-      />
-
-      <h1>
-        Notes — {branch.toUpperCase()} — {semester.toUpperCase()}
-      </h1>
-
-      {items.length === 0 ? (
-        <p>No notes added yet for this semester.</p>
-      ) : (
-        <ul>
-          {items.map((item) => (
-            <li key={item.id} style={{ marginBottom: 8 }}>
-              <Link href={item.href} target="_blank">
-                {item.title}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      )}
+      <Breadcrumbs parts={[
+        { label: "Notes", href: "/notes" },
+        { label: branch.toUpperCase(), href: `/notes/${branch}` },
+        { label: semester.toUpperCase() },
+      ]} />
+      <h1>Notes — {branch.toUpperCase()} — {semester.toUpperCase()}</h1>
+      <ResourceList items={items} />
     </>
   );
 }
