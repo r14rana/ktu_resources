@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { BRANCHES, SEMESTERS } from "@/lib/constants";
+
 
 const branches = ["CSE","ECE","EEE","ME","CE","AI","IT"];
 export default function Notes() {
