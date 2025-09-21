@@ -18,12 +18,12 @@ export default function Home() {
         <Card
           title="Academic Calendar (2024–25)"
           desc="Official term dates, exams, and holidays."
-          href="/academic-calendar-2024-25.pdf"
+          href="/academicCalender.pdf"
         />
         <Card
           title="B.Tech Regulations (2019)"
           desc="Credits, attendance, evaluation, and rules."
-          href="/btech-regulations-2019.pdf"
+          href="/bTechRegulations.pdf"
         />
       </section>
 
