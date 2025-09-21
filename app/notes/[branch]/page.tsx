@@ -1,15 +1,19 @@
 import Link from "next/link";
+import { SEMESTERS, BRANCHES } from "@/lib/constants"; // keep if you already have it
+import { notFound } from "next/navigation";
+import Breadcrumbs from "../../../components/Breadcrumbs";
 
-const semesters = ["S1","S2","S3","S4","S5","S6","S7","S8"];
+export default function Branch({ params }: { params: { branch: string } }) {
+  const branch = params.branch.toLowerCase();
+  if (!BRANCHES.map(b => b.toLowerCase()).includes(branch)) notFound();
 
-export default function BranchPage({ params }: { params: { branch: string } }) {
-  const { branch } = params;
   return (
     <>
+      <Breadcrumbs parts={[{ label: "Notes", href: "/notes" }, { label: branch.toUpperCase() }]} />
+
       <h1>Notes — {branch.toUpperCase()}</h1>
-      <p>Select semester:</p>
       <ul>
-        {semesters.map(s => (
+        {SEMESTERS.map((s) => (
           <li key={s}>
             <Link href={`/notes/${branch}/${s.toLowerCase()}`}>{s}</Link>
           </li>
